@@ -20,3 +20,6 @@ db:
   username: [username]
   password: [password]
 ```
+
+- `rails db:setup`
+- `rails db:migrate`
