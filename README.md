@@ -28,7 +28,7 @@ db:
 - `rails db:setup`
 - `rails db:migrate`
 
-# Home Page with Title Bar
+## Home Page with Title Bar
 
 `rails g controller HomePage index`
 
@@ -73,4 +73,22 @@ app/views/home_page/index.html.erb
 
 ```
 <h2>HomePage#index</h2>
+```
+
+## Deploy to Heroku
+
+- `brew tap heroku/brew && brew install heroku `
+- `heroku autocomplete`
+- `printf "$(heroku autocomplete:script zsh)" >> ~/.zshrc; source ~/.zshrc`
+- `compaudit -D`
+- `heroku create codr.academy` 
+- `git push heroku master`
+
+### Fix missing images
+
+config/environments/production.rb
+
+```
+config.assets.initialize_on_precompile = false
+  config.assets.compile = true
 ```
