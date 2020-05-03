@@ -104,10 +104,10 @@ config.assets.initialize_on_precompile = false
 - Home(Link)
 - Profile(Link)
 - Sign out
-- Chat room page(link)
+- Chat room page(link) *****************
     - all cohorts, brisbane , sydney and melb links)
 - Cohort(Link) of all the cohorts)
-- Search bar? 
+- Search bar?**************** 
 - Others?
 - Signin(link)
 - Login(link)
@@ -116,8 +116,10 @@ config.assets.initialize_on_precompile = false
 ### Home page (controller) (using posts model?)
 - list of posts with signup/login links
 - clickable posts for read on new page or same page? and comment on
+- Post button that links to new post page
 
     - Seperate page for each clicked post??? (home_page/id??)
+    - New post page
 
 ### Profile page (model and controller?)
 - Personal information CRUD 
@@ -125,7 +127,7 @@ config.assets.initialize_on_precompile = false
 - Avatar
 - Others?
 
-### Chatroom Page (model and controller?)
+### Chatroom Page (model and controller?)***************
 - Chatbook for all cohorts(like on jasons website)
 - links to Brisbane/Sydney/Melbourne private chat?
 - links to chats with one student?
