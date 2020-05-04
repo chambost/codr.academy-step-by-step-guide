@@ -220,7 +220,7 @@ app/models/user.rb
   end
 ```
 
-To fix a heroku error switch from zietgest to classic autoloader
+To fix a heroku error switch from zietwerk to classic autoloader
 config/application.rb
 
 ```
