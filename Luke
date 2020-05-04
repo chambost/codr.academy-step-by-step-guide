@@ -1,0 +1,39 @@
+4/5/20
+
+FYI
+
+-Left off email and password on User model as devise took care of it after
+
+- compared to our ERD, dont think image field needs to be added to the models
+
+- at the moment when you go to /users/new it doesnt show email verication yet, but easy to fix, made comments in user controller to make sense of it
+
+- some fields show up on login page that we dont want to show, will fix later
+
+- left out verbal marks for now, easy to add after
+
+
+
+
+
+
+terminal commands used.
+
+- rails active_storage:install (pointless)
+    -changed migration version to [6.0]
+
+- rails g scaffold user username name cohort point:integer github linked_in
+
+- rails g scaffold post title content user:references edited:boolean time:datetime
+
+- rails g scaffold comment user:references post:resources content edited:boolean
+
+- rails g devise:install
+    - action.mailer in config/environment/development added as   devise requirement
+    - left devise root as homepage(might need to change later)
+    - added some example flash notes to application.html.erb as a devise req
+
+rails g devise:views
+rails g devise users
+rails db:migrate
+

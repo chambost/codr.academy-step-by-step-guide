@@ -75,6 +75,32 @@ app/views/home_page/index.html.erb
 <h2>HomePage#index</h2>
 ```
 
+## Create Models
+
+- `rails g scaffold user username name cohort point:integer github linked_in`
+
+- `rails g scaffold post title content user:references edited:boolean time:datetime`
+
+- `rails g scaffold comment user:references post:resources content edited:boolean`
+
+- add relations to models according to ERD/Plan ie `belongs_to, has_many, dependant: :destroy`, etc 
+
+## Add Images(only started)
+
+- 'rails active_storage:install'
+    -change migration version to [6.0]
+
+## Devise Setup
+
+- `rails g devise:install`
+- follow the step in the terminal
+    - added `config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }` config/environments/development.rb
+    - Setup a root e.g `root 'home_page#index'`
+    - Added the example flash notes shown in terminal to app/views/layou/application.html.erb  
+
+- `rails g devise:views` to create the users login and signup views and more
+- `rails g devise users` correlates devise to users
+
 ## Deploy to Heroku
 
 - `brew tap heroku/brew && brew install heroku `
@@ -92,60 +118,4 @@ config/environments/production.rb
 config.assets.initialize_on_precompile = false
   config.assets.compile = true
 ```
-
-
-
-
-
-
-## Website pages layout
-
-### _NavBar (on all pages)(partial)
-- Home(Link)
-- Profile(Link)
-- Sign out
-- Chat room page(link) *****************
-    - all cohorts, brisbane , sydney and melb links)
-- Cohort(Link) of all the cohorts)
-- Search bar?**************** 
-- Others?
-- Signin(link)
-- Login(link)
-
-
-### Home page (controller) (using posts model?)
-- list of posts with signup/login links
-- clickable posts for read on new page or same page? and comment on
-- Post button that links to new post page
-
-    - Seperate page for each clicked post??? (home_page/id??)
-    - New post page
-
-### Profile page (model and controller?)
-- Personal information CRUD 
-- Form 
-- Avatar
-- Others?
-
-### Chatroom Page (model and controller?)***************
-- Chatbook for all cohorts(like on jasons website)
-- links to Brisbane/Sydney/Melbourne private chat?
-- links to chats with one student?
-
-### Cohort Page (controller?) or just use the (user/index or something like that)
-- Just a list of all the coherts names and maybe email or other info nation wide?
-
-### Signin Page (devise?)
-- Form
-
-### Login Page (devise)
-- Form
-
-
-
-
-
-
-
-
 
