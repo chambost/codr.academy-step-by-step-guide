@@ -83,12 +83,49 @@ app/views/home_page/index.html.erb
 
 - `rails g scaffold comment user:references post:resources content edited:boolean`
 
+- `rails g scaffold VerbalMark user:references post:references comment:references verbal_mark`
+
 - add relations to models according to ERD/Plan ie `belongs_to, has_many, dependant: :destroy`, etc 
 
-## Add Images(only started)
+## Add Images using S3bucket
 
-- 'rails active_storage:install'
+Add Pictures to posts
+- `models/post.rb` - has_one_attached :picture (or whatever you want to name it)
+- `views/posts/_form` 
+    -  ``` <div>
+            <%= form.label :picture %>
+            <%= form.file_field :picture, accept: "image/png,image/gif,image/jpeg, image/jpg, image/webp" %>
+        </div> (accept is optional)
+    - `/show`
+        - `<%= image_tag @post.picture, width: "100" if @post.picture.attached?   %>`
+
+- `posts_controller.rb` in create and update methods
+    - `@post.picture.attach(params[:post][:picture])`
+
+
+- `rails active_storage:install`
     -change migration version to [6.0]
+- `rails db:migrate`
+- Create s3 bucket on aws website
+    - Made not public (this time)
+    - Created IAM user
+        - Programmatic access
+        - Attached existion policy, S3FullAccess
+- `bundle add aws-sdk-s3`
+- `EDITOR="nano" rails credentials:edit`
+- ` aws:
+    access_key_id: [ask luke]
+    secret_access_key: [ask luke] `
+- edit `storage.yml` to
+    - amazon:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
+  region: ap-southeast-2
+  bucket: hackathon-rails
+- `config/enviornments/development.rb and or production.rb`
+- edit `config.active_storage.service` from `:local` to `:amazon` 
+
 
 ## Devise Setup
 
