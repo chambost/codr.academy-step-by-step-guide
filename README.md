@@ -239,3 +239,8 @@ If app crashes, see error messages via
 ```
 heroku run rails console
 ```
+
+## VerbalMark normalization
+```ruby
+/^([a-z]{1,30}){1}([]{1}[a-z]{1,30}){,1}([]{1}[a-z]{1,30}){,1}\Z/
+```
